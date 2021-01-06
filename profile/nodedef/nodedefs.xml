@@ -11,7 +11,7 @@
             </accepts>
         </cmds>
     </nodeDef>
-    <nodeDef id="AURORA" nls="MGR">
+    <nodeDef id="WLED" nls="MGR">
         <editors />
         <sts>
             <st id="ST" editor="MONOFF" />

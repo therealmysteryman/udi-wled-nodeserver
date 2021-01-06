@@ -39,14 +39,6 @@ class Wled():
         request = get(f"http://{self.host}/json/state")
         return json.loads(request.text)
     
-    def get_state(self,state):
-        """Get the current state of the WLED controller"""
-        request = get(f"http://{self.host}/json/state")
-        response_json = json.loads(request.text)
-      
-        return response_json.get(state)
-
-
     def get_effects(self):
         """
         Get the list of available effects.

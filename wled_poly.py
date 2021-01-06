@@ -134,7 +134,7 @@ class WledNode(polyinterface.Node):
         except Exception as ex:
             LOGGER.error('Error unable to connect to WLED: %s', str(ex))
             
-        self.__getEffetsList()
+        self.__saveEffetsList()
         self.__BuildProfile()
         self.query()
 

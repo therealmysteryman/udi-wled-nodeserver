@@ -1,9 +1,9 @@
 # controller
 ST-controller-ST-NAME = Connected
-ST-AURORA-ST-NAME = Connected
+ST-WLED-ST-NAME = Connected
 
-ND-AURORA-NAME = WLED Light
-ND-AURORA-ICON = Lamp
+ND-WLED-NAME = WLED Light
+ND-WLED-ICON = Lamp
 ND-controller-NAME = Wled
 ND-controller-ICON = GenericCtl
 

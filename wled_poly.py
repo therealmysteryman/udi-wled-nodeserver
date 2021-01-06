@@ -125,9 +125,11 @@ class WledNode(polyinterface.Node):
         self.do_poll = True
         self.wled_ip = ip
         self.arrEffects = None
+        self.my_wled = None
         
         try:
             self.my_wled = wled.Wled(ip)
+            
         except Exception as ex:
             LOGGER.error('Error unable to connect to WLED: %s', str(ex))
             

@@ -17,8 +17,7 @@ class Wled():
     def __init__(self, host):
         self.host = host
 
-        #self.effects = self.get_effects()
-
+        self.effects = None
         self._name = None
         self._state = None
         self._brightness = None
@@ -40,6 +39,14 @@ class Wled():
         """Get the current state of the WLED controller"""
         request = get(f"http://{self.host}/json/state")
         return json.loads(request.text)
+    
+    def get_state(self,state):
+        """Get the current state of the WLED controller"""
+        request = get(f"http://{self.host}/json/state")
+        response_json = json.loads(request.text)
+      
+        return response_json.get(state)
+
 
     def get_effects(self):
         """
@@ -96,24 +103,24 @@ class Wled():
         """Send a payload to the WLED controller to turn the lights off"""
         state = {"on": False}
         response = self.set_state(state)
-        response_json = json.loads(response.text)
-        self._state = response_json["state"]["on"]
-
-        if self._state == False:
+        
+        if response.ok == True:
+            self._state = True
             return True
         else:
+            self._state = False
             return False
 
     def turn_on(self):
         """Send a payload to the WLED controller to turn the lights on"""
         state = {"on": True}
         response = self.set_state(state)
-        response_json = json.loads(response.text)
-        self._state = response_json["state"]["on"]
 
-        if self._state == True:
+        if response.ok == True:
+            self._state = True
             return True
         else:
+            self._state = False
             return False
 
     def is_on(self):

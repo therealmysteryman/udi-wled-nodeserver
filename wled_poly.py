@@ -43,7 +43,7 @@ class Controller(polyinterface.Controller):
             # Get and set IP
             if 'host' in self.polyConfig['customParams'] :
                 self.myHost = self.polyConfig['customParams']['host']
-                LOGGER.info('Custom IP address specified: {}'.format(self.host))
+                LOGGER.info('Custom IP address specified: {}'.format(self.myHost))
             else:
                 LOGGER.error('Need to have ip address in custom param host')
                 self.setDriver('ST', 0, True)

@@ -12,7 +12,7 @@ import json
 import sys
 import os
 import zipfile
-import wled as wled
+from wled import Wled
 from threading import Thread
 
 LOGGER = polyinterface.LOGGER
@@ -128,8 +128,8 @@ class WledNode(polyinterface.Node):
         self.my_wled = None
         
         try:
-            self.my_wled = wled.Wled(ip)
-            self.my_wled.update()
+            self.my_wled = Wled(ip)
+            #self.my_wled.update()
             
         except Exception as ex:
             LOGGER.error('Error unable to connect to WLED: %s', str(ex))

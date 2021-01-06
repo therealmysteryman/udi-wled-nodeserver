@@ -129,6 +129,7 @@ class WledNode(polyinterface.Node):
         
         try:
             self.my_wled = wled.Wled(ip)
+            self.my_wled.update()
             
         except Exception as ex:
             LOGGER.error('Error unable to connect to WLED: %s', str(ex))

@@ -85,6 +85,7 @@ class Controller(polyinterface.Controller):
             if self.nodes[node].address != self.address and self.nodes[node].do_poll:
                 self.nodes[node].query()
         self.reportDrivers()
+        
     def install_profile(self):
         try:
             self.poly.installprofile()
@@ -155,7 +156,8 @@ class WledNode(polyinterface.Node):
         self.setDriver('GV3', intBri, True)
 
     def setEffect(self, command):
-        self.my_wled.set_effect(int(command.get('value')))
+        intEffect = int(command.get('value'))-1
+        self.my_wled.set_effect(intEffect)
         self.setDriver('GV4', intEffect, True)
     
     def setProfile(self, command):
@@ -172,7 +174,7 @@ class WledNode(polyinterface.Node):
             else:
                 self.setDriver('ST', 0, True)
             self.setDriver('GV3', self.my_wled.get_brightness(), True)
-            self.setDriver('GV4', self.arrEffects.index(self.my_wled.get_effect())+1, True)
+            self.setDriver('GV4', self.my_wled.get_effect()-1, True)
             self.reportDrivers()
         except Exception as ex:
             LOGGER.error('Error updating WLED value: %s', str(ex))

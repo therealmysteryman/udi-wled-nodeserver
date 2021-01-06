@@ -37,7 +37,7 @@ class Controller(polyinterface.Controller):
         self.hb = 0
         
     def start(self):
-        LOGGER.info('Started NanoLeaf WLED for v2 NodeServer version %s', str(VERSION))
+        LOGGER.info('Started WLED for v2 NodeServer version %s', str(VERSION))
         try:
             
             # Get and set IP

@@ -1,0 +1,29 @@
+{
+    "name": "WLED",
+    "docs": "https://github.com/therealmysteryman/udi-wled-nodeserver",
+    "type": "python3",
+    "executable": "wled_poly.py",
+    "install": "install.sh",
+    "shortPoll": "60",
+    "longPoll": "300",
+    "description": "Connect WLED to the ISY994.",
+    "notice": "https://github.com/therealmysteryman/udi-wled-nodeserver/blob/master/LICENSE",
+    "credits": [
+        {
+            "title": "wled-poly: A Polyglot v2 interface to WLED",
+            "author": "AutomationGeek",
+            "version": "2.0.0",
+            "date": "January 5, 2021",
+            "source": "https://github.com/therealmysteryman/udi-wled-nodeserver",
+            "license": "https://github.com/therealmysteryman/udi-wled-nodeserver/blob/master/LICENSE"
+        },
+	{
+            "title": "udi-poly-template-python: A Polyglot v2 Poly template",
+            "author": "James Milne (Einstein.42)",
+            "version": "2.0.0",
+            "date": "November 8, 2017",
+            "source": "https://github.com/Einstein42/udi-poly-template-python",
+            "license": "https://raw.githubusercontent.com/Einstein42/udi-poly-template-python/master/LICENSE"
+        }
+    ]
+}

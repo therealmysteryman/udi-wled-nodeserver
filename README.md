@@ -10,7 +10,7 @@ You can install from Polyglot V2 store or manually :
 1. cd ~/.polyglot/nodeservers
 2. git clone https://github.com/therealmysteryman/udi-wled-nodeserver.git
 3. run ./install.sh to install the required dependency.
-4. Create a custom variable named ip -> ipaddress_of_wled
+4. Create a custom variable named host -> ipaddress_of_wled
 5. After the first run, I suggest you click on the Rebuild Profile of the WLED and restart the Admin Console. This will provide you with and updated list of Effect for your WLED.
 
 #### Usage

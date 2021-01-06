@@ -32,7 +32,7 @@ class Controller(polyinterface.Controller):
         self.name = 'WLED'
         self.initialized = False
         self.tries = 0
-        self.nano_ip = None
+        self.myHost = None
         self.discovery_thread = None
         self.hb = 0
         
@@ -42,7 +42,7 @@ class Controller(polyinterface.Controller):
             
             # Get and set IP
             if 'host' in self.polyConfig['customParams'] :
-                self.host = self.polyConfig['customParams']['host']
+                self.myHost = self.polyConfig['customParams']['host']
                 LOGGER.info('Custom IP address specified: {}'.format(self.host))
             else:
                 LOGGER.error('Need to have ip address in custom param host')
@@ -105,7 +105,7 @@ class Controller(polyinterface.Controller):
         self.discovery_thread.start()
 
     def _discovery_process(self):
-        lstIp = self.host.split(',')
+        lstIp = self.myHost.split(',')
         id = 1
         for ip in lstIp:
             self.addNode(WledNode(self, self.address, 'wled' + str(id) , 'wled' + str(id), ip))
@@ -127,7 +127,7 @@ class WledNode(polyinterface.Node):
         self.arrEffects = None
         
         try:
-            self.my_wled = led_strip = wled.Wled(ip)
+            self.my_wled = wled.Wled(ip)
         except Exception as ex:
             LOGGER.error('Error unable to connect to WLED: %s', str(ex))
             

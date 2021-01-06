@@ -12,7 +12,7 @@ import json
 import sys
 import os
 import zipfile
-import wledpy.wled as wled
+import wled as wled
 from threading import Thread
 
 LOGGER = polyinterface.LOGGER

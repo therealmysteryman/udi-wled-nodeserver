@@ -1,0 +1,21 @@
+# controller
+ST-controller-ST-NAME = Connected
+ST-AURORA-ST-NAME = Connected
+
+ND-AURORA-NAME = WLED Light
+ND-AURORA-ICON = Lamp
+ND-controller-NAME = Wled
+ND-controller-ICON = GenericCtl
+
+ST-ST-NAME = Connected
+ST-GV3-NAME = Brightness
+ST-GV4-NAME = Effect
+ST-GV5-NAME = Status
+
+CMD-DON-NAME = On
+CMD-DOF-NAME = Off
+CMD-QUERY-NAME = Query
+CMD-DISCOVERY-NAME = Discover
+CMD-SET_PROFILE-NAME = Rebuild Effect List
+CMD-SET_BRI-NAME = Set Brightness
+CMD-SET_EFFECT-NAME = Set Effect

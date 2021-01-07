@@ -158,7 +158,7 @@ class WledNode(polyinterface.Node):
     def setEffect(self, command):
         intEffect = int(command.get('value'))-1
         self.my_wled.set_effect(intEffect)
-        self.setDriver('GV4', intEffect, True)
+        self.setDriver('GV4', intEffect+1, True)
     
     def setProfile(self, command):
         self.__saveEffetsList()
@@ -174,7 +174,7 @@ class WledNode(polyinterface.Node):
             else:
                 self.setDriver('ST', 0, True)
             self.setDriver('GV3', self.my_wled.get_brightness(), True)
-            self.setDriver('GV4', self.my_wled.get_effect()-1, True)
+            self.setDriver('GV4', self.my_wled.get_effect()+1, True)
             self.reportDrivers()
         except Exception as ex:
             LOGGER.error('Error updating WLED value: %s', str(ex))

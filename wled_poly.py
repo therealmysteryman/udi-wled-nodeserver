@@ -68,7 +68,7 @@ class Controller(polyinterface.Controller):
                 return
             else:
                 self.discovery_thread = None
-                self.query()
+        self.query()
 
     def heartbeat(self):
         LOGGER.debug('heartbeat: hb={}'.format(self.hb))
@@ -137,7 +137,6 @@ class WledNode(polyinterface.Node):
             
         self.__saveEffetsList()
         self.__BuildProfile()
-        self.query()
 
     def start(self):
         pass

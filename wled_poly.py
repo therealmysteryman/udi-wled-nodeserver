@@ -68,7 +68,7 @@ class Controller(polyinterface.Controller):
         self.setDriver('ST', 1, True)
         self.reportDrivers()
         for node in self.nodes:
-            if self.nodes[node].address != self.address and self.nodes[node].do_poll:
+            if  self.nodes[node].do_poll:
                 self.nodes[node].query()
 
     def longPoll(self):

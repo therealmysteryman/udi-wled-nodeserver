@@ -58,17 +58,21 @@ class Controller(polyinterface.Controller):
             return False
 
     def shortPoll(self):
-        self.query()
-
-    def longPoll(self):
-        self.heartbeat()
         if self.discovery_thread is not None:
             if self.discovery_thread.is_alive():
-                LOGGER.debug('Skipping longPoll() while discovery in progress...')
+                LOGGER.debug('Skipping shortPoll() while discovery in progress...')
                 return
             else:
                 self.discovery_thread = None
-        self.query()
+        
+        self.setDriver('ST', 1, True)
+        self.reportDrivers()
+        for node in self.nodes:
+            if self.nodes[node].address != self.address and self.nodes[node].do_poll:
+                self.nodes[node].query()
+
+    def longPoll(self):
+        self.heartbeat()
 
     def heartbeat(self):
         LOGGER.debug('heartbeat: hb={}'.format(self.hb))
@@ -78,13 +82,6 @@ class Controller(polyinterface.Controller):
         else:
             self.reportCmd("DOF",2)
             self.hb = 0
-
-    def query(self):
-        self.setDriver('ST', 1, True)
-        self.reportDrivers()
-        for node in self.nodes:
-            if self.nodes[node].address != self.address and self.nodes[node].do_poll:
-                self.nodes[node].query()
         
     def install_profile(self):
         try:

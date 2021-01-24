@@ -29,11 +29,10 @@ class Controller(polyinterface.Controller):
 
     def __init__(self, polyglot):
         super(Controller, self).__init__(polyglot)
-        self.name = 'WLED'
-        self.initialized = False
-        self.tries = 0
-        self.myHost = None
         self.discovery_thread = None
+        self.do_poll = False
+        self.name = 'WLED'
+        self.myHost = None
         self.hb = 0
         
     def start(self):
@@ -66,14 +65,17 @@ class Controller(polyinterface.Controller):
                 self.discovery_thread = None
         
         self.setDriver('ST', 1, True)
-        self.reportDrivers()
         for node in self.nodes:
             if  self.nodes[node].do_poll:
-                self.nodes[node].query()
+                self.nodes[node].update()
 
     def longPoll(self):
         self.heartbeat()
 
+    def query(self):
+        for node in self.nodes:
+            self.nodes[node].reportDrivers()
+        
     def heartbeat(self):
         LOGGER.debug('heartbeat: hb={}'.format(self.hb))
         if self.hb == 0:
@@ -161,6 +163,9 @@ class WledNode(polyinterface.Node):
         self.__BuildProfile()
     
     def query(self):
+        self.reportDrivers()
+    
+    def update(self):
         self.__updateValue()
 
     def __updateValue(self):
@@ -171,7 +176,6 @@ class WledNode(polyinterface.Node):
                 self.setDriver('ST', 0, True)
             self.setDriver('GV3', self.my_wled.get_brightness(), True)
             self.setDriver('GV4', self.my_wled.get_effect()+1, True)
-            self.reportDrivers()
         except Exception as ex:
             LOGGER.error('Error updating WLED value: %s', str(ex))
     

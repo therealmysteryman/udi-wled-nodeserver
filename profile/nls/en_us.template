@@ -20,4 +20,4 @@ CMD-DISCOVERY-NAME = Discover
 CMD-SET_PROFILE-NAME = Rebuild Effect List
 CMD-SET_BRI-NAME = Set Brightness
 CMD-SET_EFFECT-NAME = Set Effect
-CMD-SET_COLOR_ID-NAME = Set Colour ID
+CMD-SET_COLORID-NAME = Set Colour ID

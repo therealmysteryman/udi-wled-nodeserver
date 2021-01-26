@@ -12,3 +12,7 @@
     <editor id="MCLBRI">
         <range uom="56" min="1" max="255" prec="0" step="1" />
     </editor>
+    
+    <editor id="MCOLOR">
+        <range uom="100" min="0" max="255" step="1" prec="0" />
+    </editor>

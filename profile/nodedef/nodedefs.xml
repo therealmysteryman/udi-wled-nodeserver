@@ -29,7 +29,7 @@
                 <cmd id="DON" />
                 <cmd id="DOF" />
                 <cmd id="SET_PROFILE" />
-                <cmd id="SET_COLOR-ID">
+                <cmd id="SET_COLORID">
                     <p id="" editor="MCOLOR" init="GV6" />
                 </cmd>
                 <cmd id="SET_BRI">

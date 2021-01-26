@@ -21,7 +21,6 @@
             <st id="GV3" editor="MCLBRI" /> <!-- Brightness -->
             <st id="GV6" editor="MCOLOR" />
             <st id="GV4" editor="MEFFECT" />
-            
         </sts>
         <cmds>
             <sends />

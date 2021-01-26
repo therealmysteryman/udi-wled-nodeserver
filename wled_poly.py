@@ -159,9 +159,22 @@ class WledNode(polyinterface.Node):
         self.setDriver('GV4', intEffect+1)
     
     def setColor(self,command):
-        intColor = int(command.get('value'))
-        self.my_wled.set_color(intColor)
-        self.setDriver('GV6', intColor)
+        
+        color = []
+        color_r = int(query.get('R.uom100'))
+        color_g = int(query.get('G.uom100'))
+        color_b = int(query.get('B.uom100'))    
+        
+        color.append(color_r)
+        color.append(color_g)
+        color.append(color_b)
+        
+        print(color)
+        
+        self.my_wled.set_color(color)
+        self.setDriver('GV6', color_r)
+        self.setDriver('GV7', color_g)
+        self.setDriver('GV8', color_b)
     
     def setProfile(self, command):
         self.__saveEffetsList()

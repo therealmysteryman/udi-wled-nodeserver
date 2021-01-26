@@ -11,7 +11,9 @@ ST-ST-NAME = Connected
 ST-GV3-NAME = Brightness
 ST-GV4-NAME = Effect
 ST-GV5-NAME = Status
-ST-GV6-NAME = Color
+ST-GV6-NAME = Color R
+ST-GV7-NAME = Color G
+ST-GV8-NAME = Color B
 
 CMD-DON-NAME = On
 CMD-DOF-NAME = Off

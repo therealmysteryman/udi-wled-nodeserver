@@ -261,7 +261,7 @@ class WledNode(polyinterface.Node):
                     'SET_PROFILE' : setProfile,
                     'SET_BRI': setBrightness,
                     'SET_EFFECT': setEffect,
-                    'SET_COLOR_ID':setColor
+                    'SET_COLORID':setColor
                 }
     
 if __name__ == "__main__":

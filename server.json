@@ -12,8 +12,8 @@
         {
             "title": "wled-poly: A Polyglot v2 interface to WLED",
             "author": "AutomationGeek",
-            "version": "2.0.4",
-            "date": "January 25, 2021",
+            "version": "2.0.5",
+            "date": "January 26, 2021",
             "source": "https://github.com/therealmysteryman/udi-wled-nodeserver",
             "license": "https://github.com/therealmysteryman/udi-wled-nodeserver/blob/master/LICENSE"
         },

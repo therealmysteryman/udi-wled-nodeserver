@@ -192,11 +192,12 @@ class WledNode(polyinterface.Node):
                 self.setDriver('ST', 100)
             else:
                 self.setDriver('ST', 0)
+                
             self.setDriver('GV3', self.my_wled.get_brightness())
             self.setDriver('GV4', self.my_wled.get_effect()+1)
-            self.setDriver('GV6', self.my_wled.get_color[0])
-            self.setDriver('GV7', self.my_wled.get_color[1])
-            self.setDriver('GV8', self.my_wled.get_color[2])
+            self.setDriver('GV6', int(self.my_wled.get_color()[0]))
+            self.setDriver('GV7', int(self.my_wled.get_color()[1]))
+            self.setDriver('GV8', int(self.my_wled.get_color()[2]))
             
         except Exception as ex:
             LOGGER.error('Error updating WLED value: %s', str(ex))

@@ -161,6 +161,8 @@ class WledNode(polyinterface.Node):
     def setColor(self,command):
         
         color = []
+        
+        query = command.get('query')
         color_r = int(query.get('R.uom100'))
         color_g = int(query.get('G.uom100'))
         color_b = int(query.get('B.uom100'))    
@@ -168,8 +170,6 @@ class WledNode(polyinterface.Node):
         color.append(color_r)
         color.append(color_g)
         color.append(color_b)
-        
-        print(color)
         
         self.my_wled.set_color(color)
         self.setDriver('GV6', color_r)
@@ -189,11 +189,15 @@ class WledNode(polyinterface.Node):
     def __updateValue(self):
         try:
             if self.my_wled.is_on() :
-                self.setDriver('ST', 100, True)
+                self.setDriver('ST', 100)
             else:
-                self.setDriver('ST', 0, True)
-            self.setDriver('GV3', self.my_wled.get_brightness(), True)
-            self.setDriver('GV4', self.my_wled.get_effect()+1, True)
+                self.setDriver('ST', 0)
+            self.setDriver('GV3', self.my_wled.get_brightness())
+            self.setDriver('GV4', self.my_wled.get_effect()+1)
+            self.setDriver('GV6', self.my_wled.get_color[0])
+            self.setDriver('GV7', self.my_wled.get_color[1])
+            self.setDriver('GV8', self.my_wled.get_color[2])
+            
         except Exception as ex:
             LOGGER.error('Error updating WLED value: %s', str(ex))
     

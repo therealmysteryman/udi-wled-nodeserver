@@ -45,10 +45,10 @@ class Controller(polyinterface.Controller):
                 LOGGER.info('Custom IP address specified: {}'.format(self.myHost))
             else:
                 LOGGER.error('Need to have ip address in custom param host')
-                self.setDriver('ST', 0, True)
+                self.setDriver('ST', 0)
                 return False                
                         
-            self.setDriver('ST', 1, True)
+            self.setDriver('ST', 1)
             self.discover()
                                                             
         except Exception as ex:
@@ -64,7 +64,7 @@ class Controller(polyinterface.Controller):
             else:
                 self.discovery_thread = None
         
-        self.setDriver('ST', 1, True)
+        self.setDriver('ST', 1)
         for node in self.nodes:
             if  self.nodes[node].do_poll:
                 self.nodes[node].update()
@@ -142,21 +142,26 @@ class WledNode(polyinterface.Node):
         
     def setOn(self, command):
         self.my_wled.turn_on()
-        self.setDriver('ST', 100, True)
+        self.setDriver('ST', 100)
 
     def setOff(self, command):
         self.my_wled.turn_off()
-        self.setDriver('ST', 0, True)
+        self.setDriver('ST', 0)
         
     def setBrightness(self, command):
         intBri = int(command.get('value'))
         self.my_wled.set_brightness(intBri)                                            
-        self.setDriver('GV3', intBri, True)
+        self.setDriver('GV3', intBri)
 
     def setEffect(self, command):
         intEffect = int(command.get('value'))-1
         self.my_wled.set_effect(intEffect)
-        self.setDriver('GV4', intEffect+1, True)
+        self.setDriver('GV4', intEffect+1)
+    
+    def setColor(self,command):
+        intColor = int(command.get('value'))
+        self.my_wled.set_color(intColor)
+        self.setDriver('GV6', intColor)
     
     def setProfile(self, command):
         self.__saveEffetsList()
@@ -245,7 +250,8 @@ class WledNode(polyinterface.Node):
         
     drivers = [{'driver': 'ST', 'value': 0, 'uom': 78},
                {'driver': 'GV3', 'value': 0, 'uom': 56},
-               {'driver': 'GV4', 'value': 1, 'uom': 25}]
+               {'driver': 'GV4', 'value': 1, 'uom': 25}.
+              {'driver': 'GV6', 'value': 0, 'uom': 100}]
     
     id = 'WLED'
     commands = {
@@ -254,7 +260,8 @@ class WledNode(polyinterface.Node):
                     'DOF': setOff,
                     'SET_PROFILE' : setProfile,
                     'SET_BRI': setBrightness,
-                    'SET_EFFECT': setEffect
+                    'SET_EFFECT': setEffect,
+                    'SET_COLOR_ID':setColor
                 }
     
 if __name__ == "__main__":

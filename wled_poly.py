@@ -250,7 +250,7 @@ class WledNode(polyinterface.Node):
         
     drivers = [{'driver': 'ST', 'value': 0, 'uom': 78},
                {'driver': 'GV3', 'value': 0, 'uom': 56},
-               {'driver': 'GV4', 'value': 1, 'uom': 25}.
+               {'driver': 'GV4', 'value': 1, 'uom': 25},
               {'driver': 'GV6', 'value': 0, 'uom': 100}]
     
     id = 'WLED'

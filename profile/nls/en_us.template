@@ -11,6 +11,7 @@ ST-ST-NAME = Connected
 ST-GV3-NAME = Brightness
 ST-GV4-NAME = Effect
 ST-GV5-NAME = Status
+ST-GV6-NAME = Color
 
 CMD-DON-NAME = On
 CMD-DOF-NAME = Off
@@ -19,3 +20,4 @@ CMD-DISCOVERY-NAME = Discover
 CMD-SET_PROFILE-NAME = Rebuild Effect List
 CMD-SET_BRI-NAME = Set Brightness
 CMD-SET_EFFECT-NAME = Set Effect
+CMD-SET_COLOR_ID-NAME = Set Colour ID

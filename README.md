@@ -2,6 +2,8 @@
 
 This Poly provides an interface between WLED and Polyglot v2 server. Support control of one WLED Light per Node Server
 
+*** This nodeserver has converted to run on PG3. The code has been moved to https://github.com/UniversalDevicesInc-PG3/udi-wled-nodeserver ***
+
 #### Installation
 
 Installation instructions

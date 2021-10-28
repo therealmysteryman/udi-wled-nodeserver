@@ -1,5 +1,4 @@
-
-## This nodeserver has been converted to run on PG3. The code has been moved to https://github.com/UniversalDevicesInc-PG3/udi-wled-nodeserver
+## This nodeserver has been converted to run on PG3. The code has been moved to https://github.com/UniversalDevicesInc-PG3/udi-twinkly-nodeserver
 
 # udi-wled-nodeserver
 
